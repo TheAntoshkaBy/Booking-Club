@@ -36,8 +36,8 @@ public class Book implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long book_id;
+    @Column(name = "book_id")
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -54,7 +54,15 @@ public class Book implements Serializable {
     @Column(name = "author")
     private String author;
 
-  /* @OneToMany(mappedBy="rewiew", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public Book(String name, String description, String author, int count, Date creationDate) {
+        this.name = name;
+        this.count = count;
+        this.description = description;
+        this.creationDate = creationDate;
+        this.author = author;
+    }
+
+    /* @OneToMany(mappedBy="rewiew", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
    private Set<Review> review;*/
 
 //    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)

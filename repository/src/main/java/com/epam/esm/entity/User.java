@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Data
 @NoArgsConstructor
@@ -50,6 +52,13 @@ public class User {
         joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
         inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "role_id")})
     private List<Role> roles;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @Fetch(value = FetchMode.SUBSELECT)
+    @JoinTable(name = "bookgroup_users",
+        joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
+        inverseJoinColumns = {@JoinColumn(name = "group_id", referencedColumnName = "group_id")})
+    private List<BookGroup> bookGroups;
 
     public User(String name, String surname, String login, String password, String email) {
         this.name = name;

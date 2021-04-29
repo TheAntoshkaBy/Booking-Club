@@ -1,7 +1,6 @@
 package com.epam.esm.service;
 
-import com.epam.esm.pojo.CertificatePOJO;
-import com.epam.esm.pojo.TagPOJO;
+import com.epam.esm.entity.Book;
 import java.util.List;
 import java.util.Map;
 
@@ -12,8 +11,9 @@ public interface CertificateInternalService {
 
     /**
      * This method delegates management to one of find methods.
-     **/
-    List<CertificatePOJO> findAll(int page, int size);
+     *
+     * @return*/
+    List<Book> findAll(int page, int size);
 
     int getAllCertificateCount();
 
@@ -25,8 +25,8 @@ public interface CertificateInternalService {
      * @param page    pagination offset
      * @param size    pagination limit
      **/
-    List<CertificatePOJO> findAllComplex(Map<String, String> request, List<TagPOJO> tags, int page,
-                                         int size);
+    List<Book> findAllComplex(Map<String, String> request, List<TagPOJO> tags, int page,
+                              int size);
 
     /**
      * This method finds certificates count
@@ -37,44 +37,9 @@ public interface CertificateInternalService {
     int getCountComplex(Map<String, String> request, List<TagPOJO> tags);
 
     /**
-     * This method find certificate from database by id
-     *
-     * @param id Certificate id
-     **/
-    int findByAllCertificatesByIdThresholdCount(long id);
-
-    /**
-     * This method finds all certificates from database and sorted them
-     *
-     * @param page pagination offset
-     * @param size pagination limit
-     * @return Certificates list
-     **/
-    List<CertificatePOJO> findAllCertificatesByDate(int page, int size);
-
-    /**
-     * This method finds concrete Certificate which contains id more than transmitted id
-     *
-     * @param id   Certificate Id
-     * @param page pagination offset
-     * @param size pagination limit
-     * @return Certificate List
-     **/
-    List<CertificatePOJO> findAllCertificatesByIdThreshold(long id, int page, int size);
-
-    /**
-     * This method finds all certificates which contain string in tag name from database
-     *
-     * @param tag  Certificate tag
-     * @param page pagination offset
-     * @param size pagination limit
-     **/
-    List<CertificatePOJO> findAllCertificatesByTag(TagPOJO tag, int page, int size);
-
-    /**
      * This method finds all certificates which contain string in name from database
      *
      * @param text Certificate name part
      **/
-    List<CertificatePOJO> findByAllCertificatesByNamePart(String text);
+    List<Book> findByAllCertificatesByNamePart(String text);
 }

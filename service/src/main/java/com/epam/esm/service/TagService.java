@@ -1,6 +1,5 @@
 package com.epam.esm.service;
 
-import com.epam.esm.pojo.TagPOJO;
 import java.util.List;
 
 /**
@@ -11,7 +10,7 @@ public interface TagService {
     /**
      * This method finds all tags from database
      **/
-    List<TagPOJO> findAll(int offset, int limit);
+    List<Review> findAll(int offset, int limit);
 
     int getTagCount();
 
@@ -21,9 +20,9 @@ public interface TagService {
      * @param id Tag Id
      * @return Tag
      **/
-    TagPOJO find(long id);
+    Review find(long id);
 
-    TagPOJO findMostWidelyUsedTag();
+    Review findMostWidelyUsedTag();
 
     /**
      * This method delete tag by transmitted tag id to certificate with transmitted certificate id
@@ -37,5 +36,5 @@ public interface TagService {
      *
      * @param tag Tag object
      **/
-    TagPOJO create(TagPOJO tag);
+    Review create(Review tag);
 }

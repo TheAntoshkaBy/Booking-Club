@@ -1,8 +1,8 @@
 package com.epam.esm.exception;
 
-import com.epam.esm.pojo.InvalidDataMessage;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 import org.springframework.http.HttpStatus;
 
 public class ServiceBadRequestException extends RuntimeException {

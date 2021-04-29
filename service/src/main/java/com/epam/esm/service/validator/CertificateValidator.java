@@ -2,7 +2,6 @@ package com.epam.esm.service.validator;
 
 import com.epam.esm.exception.ServiceValidationException;
 import com.epam.esm.exception.constant.ErrorTextMessageConstants;
-import com.epam.esm.pojo.InvalidDataMessage;
 import org.springframework.stereotype.Component;
 
 @Component

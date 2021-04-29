@@ -5,10 +5,9 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import com.epam.esm.controller.UserController;
 import com.epam.esm.entity.Role;
-import com.epam.esm.pojo.UserPOJO;
+import com.epam.esm.entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -55,7 +54,7 @@ public class UserDTO {
     @JsonIgnore
     private EntityModel<UserDTO> model;
 
-    public UserDTO(UserPOJO user) {
+    public UserDTO(User user) {
         this.id = user.getUser_id();
         this.name = user.getName();
         this.surname = user.getSurname();

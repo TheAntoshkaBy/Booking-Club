@@ -1,12 +1,8 @@
 package com.epam.esm.service.impl;
 
 import com.epam.esm.entity.Review;
-import com.epam.esm.pojo.TagPOJO;
 import com.epam.esm.service.TagService;
-import com.epam.esm.service.support.PojoConverter;
-import com.epam.esm.service.validator.TagValidator;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ShopTagService implements TagService {
 
     @Override
-    public List<TagPOJO> findAll(int offset, int limit) {
+    public List<Review> findAll(int offset, int limit) {
         return null;
     }
 
@@ -25,12 +21,12 @@ public class ShopTagService implements TagService {
     }
 
     @Override
-    public TagPOJO find(long id) {
+    public Review find(long id) {
         return null;
     }
 
     @Override
-    public TagPOJO findMostWidelyUsedTag() {
+    public Review findMostWidelyUsedTag() {
         return null;
     }
 
@@ -40,38 +36,38 @@ public class ShopTagService implements TagService {
     }
 
     @Override
-    public TagPOJO create(TagPOJO tag) {
+    public Review create(Review tag) {
         return null;
     }
 
   /*  private final ReviewRepositoryJPA tagRepository;
     private final TagValidator tagValidator;
-    private final PojoConverter<TagPOJO, Review> converter;
+    private final PojoConverter<Review, Review> converter;
 
     @Autowired
     public ShopTagService(ReviewRepositoryJPA tagRepository, TagValidator tagValidator,
-                          PojoConverter<TagPOJO, Review> converter) {
+                          PojoConverter<Review, Review> converter) {
         this.tagRepository = tagRepository;
         this.tagValidator = tagValidator;
         this.converter = converter;
     }
 
     @Override
-    public List<TagPOJO> findAll(int page, int size) {
+    public List<Review> findAll(int page, int size) {
         page = PojoConverter.convertPaginationPageToDbOffsetParameter(page, size);
 
         return converter.convert(tagRepository.findAll(--page, size));
     }
 
     @Override
-    public TagPOJO find(long id) {
+    public Review find(long id) {
         tagValidator.checkId(id);
-        return new TagPOJO(tagRepository.findById(id));
+        return new Review(tagRepository.findById(id));
     }
 
     @Override
-    public TagPOJO findMostWidelyUsedTag() {
-        return new TagPOJO(tagRepository.findMostWidelyUsedTag());
+    public Review findMostWidelyUsedTag() {
+        return new Review(tagRepository.findMostWidelyUsedTag());
     }
 
     @Override
@@ -81,10 +77,10 @@ public class ShopTagService implements TagService {
     }
 
     @Override
-    public TagPOJO create(TagPOJO tag) {
+    public Review create(Review tag) {
         tagValidator.isCorrectTag(tag);
 
-        return new TagPOJO(tagRepository.create(converter.convert(tag)));
+        return new Review(tagRepository.create(converter.convert(tag)));
     }
 
     @Override

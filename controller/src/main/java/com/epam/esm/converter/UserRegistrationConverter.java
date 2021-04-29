@@ -1,16 +1,16 @@
 package com.epam.esm.converter;
 
 import com.epam.esm.dto.RegistrationUserDTO;
-import com.epam.esm.pojo.UserPOJO;
+import com.epam.esm.entity.User;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserRegistrationConverter implements DtoConverter<RegistrationUserDTO, UserPOJO> {
+public class UserRegistrationConverter implements DtoConverter<RegistrationUserDTO, User> {
 
     @Override
-    public List<RegistrationUserDTO> convert(List<UserPOJO> users) {
+    public List<RegistrationUserDTO> convert(List<User> users) {
         return users
             .stream()
             .map(RegistrationUserDTO::new)
@@ -18,8 +18,8 @@ public class UserRegistrationConverter implements DtoConverter<RegistrationUserD
     }
 
     @Override
-    public UserPOJO convert(RegistrationUserDTO user) {
-        return new UserPOJO(user.getId(), user.getName(), user.getSurname(), user.getLogin(), user.getPassword(),
-            user.getEmail(), user.getRoles());
+    public User convert(RegistrationUserDTO user) {
+        return new User(user.getId(), user.getName(), user.getSurname(), user.getLogin(), user.getPassword(),
+            user.getEmail(), user.getRoles(), null);
     }
 }

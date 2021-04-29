@@ -1,11 +1,12 @@
 package com.epam.esm.repository;
 
 import com.epam.esm.entity.Book;
-import com.epam.esm.entity.Review;
 import java.util.List;
-import java.util.Map;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -14,9 +15,22 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     @Override
     List<Book> findAll();
 
+    List<Book> findByIdBetween(Long offset, Long lastBook);
+
     @Override
     List<Book> findAll(Sort sort);
 
     @Override
     List<Book> findAllById(Iterable<Long> iterable);
+
+    int getBookById();
+
+    @Modifying
+    @Query("update book b set b.name = :name, b.description = :description, b.author = :author where b.id = :id")
+    void update(@Param("name") String name, @Param("description") String description,
+                                         @Param("author") String author);
+
+    @Modifying
+    @Query("select b.count from book b where b.id = :id")
+    int getBookCount();
 }

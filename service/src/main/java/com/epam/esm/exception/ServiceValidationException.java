@@ -1,6 +1,5 @@
 package com.epam.esm.exception;
 
-import com.epam.esm.pojo.InvalidDataMessage;
 import java.util.List;
 
 public class ServiceValidationException extends ServiceBadRequestException {

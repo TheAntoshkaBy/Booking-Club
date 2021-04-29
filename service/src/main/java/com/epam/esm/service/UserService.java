@@ -1,6 +1,6 @@
 package com.epam.esm.service;
 
-import com.epam.esm.pojo.UserPOJO;
+import com.epam.esm.entity.User;
 import java.util.List;
 
 public interface UserService {
@@ -8,7 +8,7 @@ public interface UserService {
     /**
      * This method finds all users from database using DAO
      **/
-    List<UserPOJO> findAll(int page, int size);
+    List<User> findAll(int page, int size);
 
     /**
      * This method finds concrete User By Id using DAO
@@ -16,7 +16,7 @@ public interface UserService {
      * @param id Tag Id
      * @return Tag
      **/
-    UserPOJO find(long id);
+    User findById(long id);
 
     /**
      * This method delete user by transmitted user id
@@ -30,9 +30,9 @@ public interface UserService {
      *
      * @param tag User object
      **/
-    UserPOJO create(UserPOJO user);
+    User create(User user);
 
-    UserPOJO findByLogin(String login);
+    User findByLogin(String login);
 
     int getUsersCount();
 }

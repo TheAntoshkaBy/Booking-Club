@@ -1,7 +1,5 @@
 package com.epam.esm.service.impl;
 
-import com.epam.esm.pojo.CertificateOrderPOJO;
-import com.epam.esm.pojo.UserPOJO;
 import com.epam.esm.service.OrderService;
 import java.util.List;
 import org.springframework.stereotype.Service;

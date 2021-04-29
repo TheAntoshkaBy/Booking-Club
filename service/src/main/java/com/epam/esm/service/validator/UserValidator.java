@@ -2,8 +2,6 @@ package com.epam.esm.service.validator;
 
 import com.epam.esm.exception.ServiceValidationException;
 import com.epam.esm.exception.constant.ErrorTextMessageConstants;
-import com.epam.esm.pojo.InvalidDataMessage;
-import com.epam.esm.pojo.UserPOJO;
 import com.epam.esm.repository.ClubMemberRepository;
 import java.util.ArrayList;
 import java.util.List;

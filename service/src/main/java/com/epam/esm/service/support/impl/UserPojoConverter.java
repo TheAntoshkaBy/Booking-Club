@@ -1,7 +1,6 @@
 package com.epam.esm.service.support.impl;
 
 import com.epam.esm.entity.User;
-import com.epam.esm.pojo.UserPOJO;
 import com.epam.esm.service.support.PojoConverter;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,7 +26,7 @@ public class UserPojoConverter implements PojoConverter<UserPOJO, User> {
         } else {
             return new User(userPOJO.getUser_id(), userPOJO.getName(), userPOJO.getSurname(),
                             userPOJO.getLogin(), userPOJO.getPassword(),
-                            userPOJO.getEmail(), userPOJO.getRoles()
+                            userPOJO.getEmail(), userPOJO.getRoles(), userPOJO.getBookGroups()
             );
         }
     }

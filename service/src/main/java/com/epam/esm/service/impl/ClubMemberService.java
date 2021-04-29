@@ -2,11 +2,11 @@ package com.epam.esm.service.impl;
 
 import com.epam.esm.entity.Role;
 import com.epam.esm.entity.User;
-import com.epam.esm.pojo.UserPOJO;
+import com.epam.esm.exception.InvalidDataMessage;
+import com.epam.esm.exception.ServiceBadRequestException;
 import com.epam.esm.repository.ClubMemberRepository;
 import com.epam.esm.repository.MemberRoleRepository;
 import com.epam.esm.service.UserService;
-import com.epam.esm.service.support.PojoConverter;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,26 +18,26 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class ClubMemberService implements UserService {
 
-    private final ClubMemberRepository clubMemberRepository;
+    private final ClubMemberRepository userRepository;
     private final MemberRoleRepository roleRepository;
-    private final PojoConverter<UserPOJO, User> converter;
 
     @Autowired
-    public ClubMemberService(ClubMemberRepository clubMemberRepository, MemberRoleRepository roleRepository,
-                             PojoConverter<UserPOJO, User> converter) {
-        this.clubMemberRepository = clubMemberRepository;
+    public ClubMemberService(ClubMemberRepository userRepository, MemberRoleRepository roleRepository) {
+        this.userRepository = userRepository;
         this.roleRepository = roleRepository;
-        this.converter = converter;
     }
 
     @Override
-    public List<UserPOJO> findAll(int page, int size) {
-        return null;
+    public List<User> findAll(int page, int size) {
+        long offset = page * size;
+
+        return userRepository.findByIdBetween(offset, offset + size);
     }
 
     @Override
-    public UserPOJO find(long id) {
-        return null;
+    public User findById(long id) {
+        return userRepository.findById(id)
+            .orElseThrow(() -> new ServiceBadRequestException(new InvalidDataMessage("Invalid Id!")));
     }
 
     @Override
@@ -46,21 +46,21 @@ public class ClubMemberService implements UserService {
     }
 
     @Override
-    public UserPOJO create(UserPOJO user) {
+    public User create(User user) {
 
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String actualPassword = user.getPassword();
         user.setPassword(bCryptPasswordEncoder.encode(actualPassword));
-        User changeUser = clubMemberRepository.save(converter.convert(user));
+        User changeUser = userRepository.save(user);
         ArrayList<Role> roles = new ArrayList<>();
-        roles.add(roleRepository.findById(1L).get());
+        roleRepository.findById(1L).ifPresent(roles::add);
         changeUser.setRoles(roles);
-        return new UserPOJO(clubMemberRepository.save(changeUser));
+        return userRepository.save(changeUser);
     }
 
     @Override
-    public UserPOJO findByLogin(String login) {
-        return new UserPOJO(clubMemberRepository.findByLogin(login));
+    public User findByLogin(String login) {
+        return userRepository.findByLogin(login);
     }
 
     @Override

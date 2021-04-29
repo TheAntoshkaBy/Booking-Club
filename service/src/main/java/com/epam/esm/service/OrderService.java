@@ -1,7 +1,5 @@
 package com.epam.esm.service;
 
-import com.epam.esm.pojo.CertificateOrderPOJO;
-import com.epam.esm.pojo.UserPOJO;
 import java.util.List;
 
 public interface OrderService {

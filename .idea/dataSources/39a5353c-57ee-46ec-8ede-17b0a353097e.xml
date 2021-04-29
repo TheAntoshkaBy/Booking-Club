@@ -45,14 +45,14 @@ false Africa/Blantyre
 false Africa/Brazzaville
 false Africa/Bujumbura
 false Africa/Cairo
-false Africa/Casablanca
+true Africa/Casablanca
 true Africa/Ceuta
 false Africa/Conakry
 false Africa/Dakar
 false Africa/Dar_es_Salaam
 false Africa/Djibouti
 false Africa/Douala
-false Africa/El_Aaiun
+true Africa/El_Aaiun
 false Africa/Freetown
 false Africa/Gaborone
 false Africa/Harare
@@ -784,19 +784,11 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <StartupTime>1617796910</StartupTime>
+      <StartupTime>1618898237</StartupTime>
     </root>
     <database id="2" parent="1" name="booking_club">
       <ObjectId>16488</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>563</IntrospectionStateNumber>
-      <Relations>sequence|table|16489|16491|1
-sequence|table|16500|16502|1
-sequence|table|16508|16510|1
-sequence|table|16519|16521|1
-sequence|table|16527|16529|1
-sequence|table|16538|16540|1
-</Relations>
     </database>
     <database id="3" parent="1" name="postgres">
       <ObjectId>13442</ObjectId>
@@ -806,14 +798,15 @@ sequence|table|16538|16540|1
     <database id="4" parent="1" name="second_db">
       <ObjectId>16394</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1071</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1425</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|17880|17882|1
-sequence|table|17891|17893|1
-sequence|table|17902|17904|1
-sequence|table|17910|17912|1
-sequence|table|17921|17923|1
-sequence|table|17932|17934|1
+      <Relations>sequence|table|18774|18776|1
+sequence|table|18785|18787|1
+sequence|table|18796|18798|1
+sequence|table|18810|18812|1
+sequence|table|18821|18823|1
+sequence|table|18832|18834|1
+sequence|table|18843|18845|1
 </Relations>
     </database>
     <role id="5" parent="1" name="pg_execute_server_program">
@@ -849,32 +842,33 @@ sequence|table|17932|17934|1
       <Replication>1</Replication>
       <BypassRls>1</BypassRls>
     </role>
-    <schema id="14" parent="2" name="information_schema">
+    <schema id="14" parent="4" name="information_schema">
       <ObjectId>13158</ObjectId>
       <StateNumber>293</StateNumber>
       <Owner>postgres</Owner>
     </schema>
-    <schema id="15" parent="2" name="pg_catalog">
+    <schema id="15" parent="4" name="pg_catalog">
       <ObjectId>11</ObjectId>
       <Comment>system catalog schema</Comment>
       <StateNumber>286</StateNumber>
       <Owner>postgres</Owner>
     </schema>
-    <schema id="16" parent="2" name="public">
+    <schema id="16" parent="4" name="public">
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
+      <IntrospectionStateNumber>1426</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
-    <access-method id="17" parent="2" name="heap">
+    <access-method id="17" parent="4" name="heap">
       <ObjectId>2</ObjectId>
       <Comment>heap table access method</Comment>
       <StateNumber>1</StateNumber>
       <Handler>pg_catalog.heap_tableam_handler</Handler>
       <HandlerId>3</HandlerId>
     </access-method>
-    <access-method id="18" parent="2" name="btree">
+    <access-method id="18" parent="4" name="btree">
       <ObjectId>403</ObjectId>
       <Comment>b-tree index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -882,7 +876,7 @@ sequence|table|17932|17934|1
       <HandlerId>330</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="19" parent="2" name="hash">
+    <access-method id="19" parent="4" name="hash">
       <ObjectId>405</ObjectId>
       <Comment>hash index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -890,7 +884,7 @@ sequence|table|17932|17934|1
       <HandlerId>331</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="20" parent="2" name="gist">
+    <access-method id="20" parent="4" name="gist">
       <ObjectId>783</ObjectId>
       <Comment>GiST index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -898,7 +892,7 @@ sequence|table|17932|17934|1
       <HandlerId>332</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="21" parent="2" name="gin">
+    <access-method id="21" parent="4" name="gin">
       <ObjectId>2742</ObjectId>
       <Comment>GIN index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -906,7 +900,7 @@ sequence|table|17932|17934|1
       <HandlerId>333</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="22" parent="2" name="spgist">
+    <access-method id="22" parent="4" name="spgist">
       <ObjectId>4000</ObjectId>
       <Comment>SP-GiST index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -914,7 +908,7 @@ sequence|table|17932|17934|1
       <HandlerId>334</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="23" parent="2" name="brin">
+    <access-method id="23" parent="4" name="brin">
       <ObjectId>3580</ObjectId>
       <Comment>block range index (BRIN) access method</Comment>
       <StateNumber>1</StateNumber>
@@ -922,7 +916,7 @@ sequence|table|17932|17934|1
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <extension id="24" parent="2" name="plpgsql">
+    <extension id="24" parent="4" name="plpgsql">
       <ObjectId>13428</ObjectId>
       <Comment>PL/pgSQL procedural language</Comment>
       <StateNumber>439</StateNumber>
@@ -930,524 +924,561 @@ sequence|table|17932|17934|1
       <SchemaName>pg_catalog</SchemaName>
       <SchemaId>11</SchemaId>
     </extension>
-    <language id="25" parent="2" name="c"/>
-    <language id="26" parent="2" name="internal"/>
-    <language id="27" parent="2" name="plpgsql"/>
-    <language id="28" parent="2" name="sql"/>
-    <schema id="29" parent="4" name="information_schema">
-      <ObjectId>13158</ObjectId>
-      <StateNumber>293</StateNumber>
+    <language id="25" parent="4" name="c"/>
+    <language id="26" parent="4" name="internal"/>
+    <language id="27" parent="4" name="plpgsql"/>
+    <language id="28" parent="4" name="sql"/>
+    <sequence id="29" parent="16" name="bk_user_user_id_seq">
+      <ObjectId>18774</ObjectId>
       <Owner>postgres</Owner>
-    </schema>
-    <schema id="30" parent="4" name="pg_catalog">
-      <ObjectId>11</ObjectId>
-      <Comment>system catalog schema</Comment>
-      <StateNumber>286</StateNumber>
-      <Owner>postgres</Owner>
-    </schema>
-    <schema id="31" parent="4" name="public">
-      <ObjectId>2200</ObjectId>
-      <Comment>standard public schema</Comment>
-      <StateNumber>287</StateNumber>
-      <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1072</IntrospectionStateNumber>
-      <Current>1</Current>
-    </schema>
-    <access-method id="32" parent="4" name="heap">
-      <ObjectId>2</ObjectId>
-      <Comment>heap table access method</Comment>
-      <StateNumber>1</StateNumber>
-      <Handler>pg_catalog.heap_tableam_handler</Handler>
-      <HandlerId>3</HandlerId>
-    </access-method>
-    <access-method id="33" parent="4" name="btree">
-      <ObjectId>403</ObjectId>
-      <Comment>b-tree index access method</Comment>
-      <StateNumber>1</StateNumber>
-      <Handler>pg_catalog.bthandler</Handler>
-      <HandlerId>330</HandlerId>
-      <Type>index</Type>
-    </access-method>
-    <access-method id="34" parent="4" name="hash">
-      <ObjectId>405</ObjectId>
-      <Comment>hash index access method</Comment>
-      <StateNumber>1</StateNumber>
-      <Handler>pg_catalog.hashhandler</Handler>
-      <HandlerId>331</HandlerId>
-      <Type>index</Type>
-    </access-method>
-    <access-method id="35" parent="4" name="gist">
-      <ObjectId>783</ObjectId>
-      <Comment>GiST index access method</Comment>
-      <StateNumber>1</StateNumber>
-      <Handler>pg_catalog.gisthandler</Handler>
-      <HandlerId>332</HandlerId>
-      <Type>index</Type>
-    </access-method>
-    <access-method id="36" parent="4" name="gin">
-      <ObjectId>2742</ObjectId>
-      <Comment>GIN index access method</Comment>
-      <StateNumber>1</StateNumber>
-      <Handler>pg_catalog.ginhandler</Handler>
-      <HandlerId>333</HandlerId>
-      <Type>index</Type>
-    </access-method>
-    <access-method id="37" parent="4" name="spgist">
-      <ObjectId>4000</ObjectId>
-      <Comment>SP-GiST index access method</Comment>
-      <StateNumber>1</StateNumber>
-      <Handler>pg_catalog.spghandler</Handler>
-      <HandlerId>334</HandlerId>
-      <Type>index</Type>
-    </access-method>
-    <access-method id="38" parent="4" name="brin">
-      <ObjectId>3580</ObjectId>
-      <Comment>block range index (BRIN) access method</Comment>
-      <StateNumber>1</StateNumber>
-      <Handler>pg_catalog.brinhandler</Handler>
-      <HandlerId>335</HandlerId>
-      <Type>index</Type>
-    </access-method>
-    <extension id="39" parent="4" name="plpgsql">
-      <ObjectId>13428</ObjectId>
-      <Comment>PL/pgSQL procedural language</Comment>
-      <StateNumber>439</StateNumber>
-      <Version>1.0</Version>
-      <SchemaName>pg_catalog</SchemaName>
-      <SchemaId>11</SchemaId>
-    </extension>
-    <language id="40" parent="4" name="c"/>
-    <language id="41" parent="4" name="internal"/>
-    <language id="42" parent="4" name="plpgsql"/>
-    <language id="43" parent="4" name="sql"/>
-    <sequence id="44" parent="31" name="bk_user_user_id_seq">
-      <ObjectId>17880</ObjectId>
-      <Owner>postgres</Owner>
-      <StateNumber>1057</StateNumber>
+      <StateNumber>1399</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <sequence id="45" parent="31" name="book_id_seq">
-      <ObjectId>17891</ObjectId>
+    <sequence id="30" parent="16" name="book_book_id_seq">
+      <ObjectId>18785</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1058</StateNumber>
+      <StateNumber>1400</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <sequence id="46" parent="31" name="booking_club_order_id_seq">
-      <ObjectId>17902</ObjectId>
+    <sequence id="31" parent="16" name="book_group_group_id_seq">
+      <ObjectId>18796</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1059</StateNumber>
+      <StateNumber>1401</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <sequence id="47" parent="31" name="review_id_seq">
-      <ObjectId>17910</ObjectId>
+    <sequence id="32" parent="16" name="booking_club_order_id_seq">
+      <ObjectId>18810</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1060</StateNumber>
+      <StateNumber>1403</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <sequence id="48" parent="31" name="role_role_id_seq">
-      <ObjectId>17921</ObjectId>
+    <sequence id="33" parent="16" name="review_id_seq">
+      <ObjectId>18821</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1061</StateNumber>
+      <StateNumber>1405</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <sequence id="49" parent="31" name="status_id_seq">
-      <ObjectId>17932</ObjectId>
+    <sequence id="34" parent="16" name="role_role_id_seq">
+      <ObjectId>18832</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1062</StateNumber>
+      <StateNumber>1406</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <table id="50" parent="31" name="bk_user">
-      <ObjectId>17882</ObjectId>
+    <sequence id="35" parent="16" name="status_id_seq">
+      <ObjectId>18843</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1064</StateNumber>
-    </table>
-    <table id="51" parent="31" name="book">
-      <ObjectId>17893</ObjectId>
+      <StateNumber>1407</StateNumber>
+      <DataType>bigint|0s</DataType>
+    </sequence>
+    <table id="36" parent="16" name="bk_user">
+      <ObjectId>18776</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1065</StateNumber>
+      <StateNumber>1410</StateNumber>
     </table>
-    <table id="52" parent="31" name="booking_club_order">
-      <ObjectId>17904</ObjectId>
+    <table id="37" parent="16" name="book">
+      <ObjectId>18787</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1064</StateNumber>
+      <StateNumber>1412</StateNumber>
     </table>
-    <table id="53" parent="31" name="review">
-      <ObjectId>17912</ObjectId>
+    <table id="38" parent="16" name="book_group">
+      <ObjectId>18798</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1067</StateNumber>
+      <StateNumber>1409</StateNumber>
     </table>
-    <table id="54" parent="31" name="role">
-      <ObjectId>17923</ObjectId>
+    <table id="39" parent="16" name="bookgroup_users">
+      <ObjectId>18807</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1069</StateNumber>
+      <StateNumber>1409</StateNumber>
     </table>
-    <table id="55" parent="31" name="status">
-      <ObjectId>17934</ObjectId>
+    <table id="40" parent="16" name="booking_club_order">
+      <ObjectId>18812</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1066</StateNumber>
+      <StateNumber>1411</StateNumber>
     </table>
-    <table id="56" parent="31" name="user_roles">
-      <ObjectId>17940</ObjectId>
+    <table id="41" parent="16" name="groupbook_book">
+      <ObjectId>18818</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1069</StateNumber>
+      <StateNumber>1414</StateNumber>
     </table>
-    <column id="57" parent="50" name="user_id">
+    <table id="42" parent="16" name="review">
+      <ObjectId>18823</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1416</StateNumber>
+    </table>
+    <table id="43" parent="16" name="role">
+      <ObjectId>18834</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1418</StateNumber>
+    </table>
+    <table id="44" parent="16" name="status">
+      <ObjectId>18845</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1413</StateNumber>
+    </table>
+    <table id="45" parent="16" name="user_roles">
+      <ObjectId>18851</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1418</StateNumber>
+    </table>
+    <column id="46" parent="36" name="user_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1057</StateNumber>
+      <StateNumber>1399</StateNumber>
       <DefaultExpression>nextval(&apos;bk_user_user_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="58" parent="50" name="email">
+    <column id="47" parent="36" name="email">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1057</StateNumber>
+      <StateNumber>1399</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="59" parent="50" name="login">
+    <column id="48" parent="36" name="login">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1057</StateNumber>
+      <StateNumber>1399</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="60" parent="50" name="user_name">
+    <column id="49" parent="36" name="user_name">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1057</StateNumber>
+      <StateNumber>1399</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="61" parent="50" name="user_password">
+    <column id="50" parent="36" name="user_password">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1057</StateNumber>
+      <StateNumber>1399</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="62" parent="50" name="user_surname">
+    <column id="51" parent="36" name="user_surname">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1057</StateNumber>
+      <StateNumber>1399</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="63" parent="50" name="bk_user_pkey">
-      <ObjectId>17889</ObjectId>
-      <StateNumber>1057</StateNumber>
+    <index id="52" parent="36" name="bk_user_pkey">
+      <ObjectId>18783</ObjectId>
+      <StateNumber>1399</StateNumber>
       <ColNames>user_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="64" parent="50" name="bk_user_pkey">
-      <ObjectId>17890</ObjectId>
-      <StateNumber>1057</StateNumber>
+    <key id="53" parent="36" name="bk_user_pkey">
+      <ObjectId>18784</ObjectId>
+      <StateNumber>1399</StateNumber>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>bk_user_pkey</UnderlyingIndexName>
     </key>
-    <column id="65" parent="51" name="id">
+    <column id="54" parent="37" name="book_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1058</StateNumber>
-      <DefaultExpression>nextval(&apos;book_id_seq&apos;::regclass)</DefaultExpression>
+      <StateNumber>1400</StateNumber>
+      <DefaultExpression>nextval(&apos;book_book_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="66" parent="51" name="author">
+    <column id="55" parent="37" name="author">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1058</StateNumber>
+      <StateNumber>1400</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="67" parent="51" name="count">
+    <column id="56" parent="37" name="count">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>1058</StateNumber>
+      <StateNumber>1400</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="68" parent="51" name="date_of_creation">
+    <column id="57" parent="37" name="date_of_creation">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
-      <StateNumber>1058</StateNumber>
+      <StateNumber>1400</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="69" parent="51" name="description">
+    <column id="58" parent="37" name="description">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1058</StateNumber>
+      <StateNumber>1400</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="70" parent="51" name="name">
+    <column id="59" parent="37" name="name">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1058</StateNumber>
+      <StateNumber>1400</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="71" parent="51" name="book_pkey">
-      <ObjectId>17900</ObjectId>
-      <StateNumber>1058</StateNumber>
-      <ColNames>id</ColNames>
+    <index id="60" parent="37" name="book_pkey">
+      <ObjectId>18794</ObjectId>
+      <StateNumber>1400</StateNumber>
+      <ColNames>book_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="72" parent="51" name="book_pkey">
-      <ObjectId>17901</ObjectId>
-      <StateNumber>1058</StateNumber>
-      <ColNames>id</ColNames>
+    <key id="61" parent="37" name="book_pkey">
+      <ObjectId>18795</ObjectId>
+      <StateNumber>1400</StateNumber>
+      <ColNames>book_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>book_pkey</UnderlyingIndexName>
     </key>
-    <column id="73" parent="52" name="id">
+    <column id="62" parent="38" name="group_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1059</StateNumber>
-      <DefaultExpression>nextval(&apos;booking_club_order_id_seq&apos;::regclass)</DefaultExpression>
+      <StateNumber>1401</StateNumber>
+      <DefaultExpression>nextval(&apos;book_group_group_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="74" parent="52" name="create_time">
+    <column id="63" parent="38" name="description">
       <Position>2</Position>
-      <DataType>timestamp|0s</DataType>
-      <StateNumber>1059</StateNumber>
-      <TypeId>1114</TypeId>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1401</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
-    <column id="75" parent="52" name="end_time">
+    <column id="64" parent="38" name="name">
       <Position>3</Position>
-      <DataType>timestamp|0s</DataType>
-      <StateNumber>1059</StateNumber>
-      <TypeId>1114</TypeId>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1401</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
-    <column id="76" parent="52" name="user_id">
-      <Position>4</Position>
-      <DataType>bigint|0s</DataType>
-      <StateNumber>1059</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="77" parent="52" name="book_id">
-      <Position>5</Position>
-      <DataType>bigint|0s</DataType>
-      <StateNumber>1059</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="78" parent="52" name="status_id">
-      <Position>6</Position>
-      <DataType>bigint|0s</DataType>
-      <StateNumber>1059</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <index id="79" parent="52" name="booking_club_order_pkey">
-      <ObjectId>17908</ObjectId>
-      <StateNumber>1059</StateNumber>
-      <ColNames>id</ColNames>
+    <index id="65" parent="38" name="book_group_pkey">
+      <ObjectId>18805</ObjectId>
+      <StateNumber>1401</StateNumber>
+      <ColNames>group_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="80" parent="52" name="booking_club_order_pkey">
-      <ObjectId>17909</ObjectId>
-      <StateNumber>1059</StateNumber>
-      <ColNames>id</ColNames>
+    <key id="66" parent="38" name="book_group_pkey">
+      <ObjectId>18806</ObjectId>
+      <StateNumber>1401</StateNumber>
+      <ColNames>group_id</ColNames>
       <Primary>1</Primary>
-      <UnderlyingIndexName>booking_club_order_pkey</UnderlyingIndexName>
+      <UnderlyingIndexName>book_group_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="81" parent="52" name="fk4irky2nqh59r1dolh798x7oa5">
-      <ObjectId>17943</ObjectId>
-      <StateNumber>1064</StateNumber>
+    <column id="67" parent="39" name="user_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1402</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="68" parent="39" name="group_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1402</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <foreign-key id="69" parent="39" name="fk4qk4ywctvutp4rgfgbfq8e7yy">
+      <ObjectId>18859</ObjectId>
+      <StateNumber>1410</StateNumber>
       <ColNames>user_id</ColNames>
-      <RefTableId>17882</RefTableId>
+      <RefTableId>18776</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>bk_user</RefTableName>
       <RefKeyName>bk_user_pkey</RefKeyName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
-    <foreign-key id="82" parent="52" name="fk7b648crbc2i8y0ba6j32d4kc6">
-      <ObjectId>17948</ObjectId>
-      <StateNumber>1065</StateNumber>
+    <foreign-key id="70" parent="39" name="fk2hr2kxcg0dhpst1dnbbfx00x8">
+      <ObjectId>18854</ObjectId>
+      <StateNumber>1409</StateNumber>
+      <ColNames>group_id</ColNames>
+      <RefTableId>18798</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>book_group</RefTableName>
+      <RefKeyName>book_group_pkey</RefKeyName>
+      <RefColNames>group_id</RefColNames>
+    </foreign-key>
+    <column id="71" parent="40" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1403</StateNumber>
+      <DefaultExpression>nextval(&apos;booking_club_order_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="72" parent="40" name="create_time">
+      <Position>2</Position>
+      <DataType>timestamp|0s</DataType>
+      <StateNumber>1403</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="73" parent="40" name="end_time">
+      <Position>3</Position>
+      <DataType>timestamp|0s</DataType>
+      <StateNumber>1403</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="74" parent="40" name="user_id">
+      <Position>4</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>1403</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="75" parent="40" name="book_id">
+      <Position>5</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>1403</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="76" parent="40" name="status_id">
+      <Position>6</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>1403</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <index id="77" parent="40" name="booking_club_order_pkey">
+      <ObjectId>18816</ObjectId>
+      <StateNumber>1403</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="78" parent="40" name="booking_club_order_pkey">
+      <ObjectId>18817</ObjectId>
+      <StateNumber>1403</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>booking_club_order_pkey</UnderlyingIndexName>
+    </key>
+    <foreign-key id="79" parent="40" name="fk4irky2nqh59r1dolh798x7oa5">
+      <ObjectId>18864</ObjectId>
+      <StateNumber>1411</StateNumber>
+      <ColNames>user_id</ColNames>
+      <RefTableId>18776</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>bk_user</RefTableName>
+      <RefKeyName>bk_user_pkey</RefKeyName>
+      <RefColNames>user_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="80" parent="40" name="fk7b648crbc2i8y0ba6j32d4kc6">
+      <ObjectId>18869</ObjectId>
+      <StateNumber>1412</StateNumber>
       <ColNames>book_id</ColNames>
-      <RefTableId>17893</RefTableId>
+      <RefTableId>18787</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>book</RefTableName>
       <RefKeyName>book_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
+      <RefColNames>book_id</RefColNames>
     </foreign-key>
-    <foreign-key id="83" parent="52" name="fki0tksnnke2li8ith11ncf7ldf">
-      <ObjectId>17953</ObjectId>
-      <StateNumber>1066</StateNumber>
+    <foreign-key id="81" parent="40" name="fki0tksnnke2li8ith11ncf7ldf">
+      <ObjectId>18874</ObjectId>
+      <StateNumber>1413</StateNumber>
       <ColNames>status_id</ColNames>
-      <RefTableId>17934</RefTableId>
+      <RefTableId>18845</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>status</RefTableName>
       <RefKeyName>status_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="84" parent="53" name="id">
+    <column id="82" parent="41" name="group_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1060</StateNumber>
+      <StateNumber>1404</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="83" parent="41" name="book_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1404</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <foreign-key id="84" parent="41" name="fkg6wvqn0lbndm92mrhtyr4qcx5">
+      <ObjectId>18884</ObjectId>
+      <StateNumber>1415</StateNumber>
+      <ColNames>group_id</ColNames>
+      <RefTableId>18798</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>book_group</RefTableName>
+      <RefKeyName>book_group_pkey</RefKeyName>
+      <RefColNames>group_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="85" parent="41" name="fkr4o0k5y6ttmp0j9oo00fcrt9b">
+      <ObjectId>18879</ObjectId>
+      <StateNumber>1414</StateNumber>
+      <ColNames>book_id</ColNames>
+      <RefTableId>18787</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>book</RefTableName>
+      <RefKeyName>book_pkey</RefKeyName>
+      <RefColNames>book_id</RefColNames>
+    </foreign-key>
+    <column id="86" parent="42" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1405</StateNumber>
       <DefaultExpression>nextval(&apos;review_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="85" parent="53" name="date_of_creation">
+    <column id="87" parent="42" name="date_of_creation">
       <Position>2</Position>
       <DataType>timestamp|0s</DataType>
-      <StateNumber>1060</StateNumber>
+      <StateNumber>1405</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="86" parent="53" name="description">
+    <column id="88" parent="42" name="description">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1060</StateNumber>
+      <StateNumber>1405</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="87" parent="53" name="rating">
+    <column id="89" parent="42" name="rating">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>1060</StateNumber>
+      <StateNumber>1405</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="88" parent="53" name="topic">
+    <column id="90" parent="42" name="topic">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1060</StateNumber>
+      <StateNumber>1405</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="89" parent="53" name="book_id">
+    <column id="91" parent="42" name="book_id">
       <Position>6</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1060</StateNumber>
+      <StateNumber>1405</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="90" parent="53" name="user_id">
+    <column id="92" parent="42" name="user_id">
       <Position>7</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1060</StateNumber>
+      <StateNumber>1405</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="91" parent="53" name="review_pkey">
-      <ObjectId>17919</ObjectId>
-      <StateNumber>1060</StateNumber>
+    <index id="93" parent="42" name="review_pkey">
+      <ObjectId>18830</ObjectId>
+      <StateNumber>1405</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="92" parent="53" name="review_pkey">
-      <ObjectId>17920</ObjectId>
-      <StateNumber>1060</StateNumber>
+    <key id="94" parent="42" name="review_pkey">
+      <ObjectId>18831</ObjectId>
+      <StateNumber>1405</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>review_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="93" parent="53" name="fk70yrt09r4r54tcgkrwbeqenbs">
-      <ObjectId>17958</ObjectId>
-      <StateNumber>1067</StateNumber>
+    <foreign-key id="95" parent="42" name="fk70yrt09r4r54tcgkrwbeqenbs">
+      <ObjectId>18889</ObjectId>
+      <StateNumber>1416</StateNumber>
       <ColNames>book_id</ColNames>
-      <RefTableId>17893</RefTableId>
+      <RefTableId>18787</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>book</RefTableName>
       <RefKeyName>book_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
+      <RefColNames>book_id</RefColNames>
     </foreign-key>
-    <foreign-key id="94" parent="53" name="fkm2g3hoa22sa26ahr7ohkw03wg">
-      <ObjectId>17963</ObjectId>
-      <StateNumber>1068</StateNumber>
+    <foreign-key id="96" parent="42" name="fkm2g3hoa22sa26ahr7ohkw03wg">
+      <ObjectId>18894</ObjectId>
+      <StateNumber>1417</StateNumber>
       <ColNames>user_id</ColNames>
-      <RefTableId>17882</RefTableId>
+      <RefTableId>18776</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>bk_user</RefTableName>
       <RefKeyName>bk_user_pkey</RefKeyName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
-    <column id="95" parent="54" name="role_id">
+    <column id="97" parent="43" name="role_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1061</StateNumber>
+      <StateNumber>1406</StateNumber>
       <DefaultExpression>nextval(&apos;role_role_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="96" parent="54" name="name">
+    <column id="98" parent="43" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1061</StateNumber>
+      <StateNumber>1406</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="97" parent="54" name="status">
+    <column id="99" parent="43" name="status">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1061</StateNumber>
+      <StateNumber>1406</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="98" parent="54" name="role_pkey">
-      <ObjectId>17930</ObjectId>
-      <StateNumber>1061</StateNumber>
+    <index id="100" parent="43" name="role_pkey">
+      <ObjectId>18841</ObjectId>
+      <StateNumber>1406</StateNumber>
       <ColNames>role_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="99" parent="54" name="role_pkey">
-      <ObjectId>17931</ObjectId>
-      <StateNumber>1061</StateNumber>
+    <key id="101" parent="43" name="role_pkey">
+      <ObjectId>18842</ObjectId>
+      <StateNumber>1406</StateNumber>
       <ColNames>role_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>role_pkey</UnderlyingIndexName>
     </key>
-    <column id="100" parent="55" name="id">
+    <column id="102" parent="44" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1062</StateNumber>
+      <StateNumber>1407</StateNumber>
       <DefaultExpression>nextval(&apos;status_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="101" parent="55" name="user_name">
+    <column id="103" parent="44" name="user_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1062</StateNumber>
+      <StateNumber>1407</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="102" parent="55" name="status_pkey">
-      <ObjectId>17938</ObjectId>
-      <StateNumber>1062</StateNumber>
+    <index id="104" parent="44" name="status_pkey">
+      <ObjectId>18849</ObjectId>
+      <StateNumber>1407</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="103" parent="55" name="status_pkey">
-      <ObjectId>17939</ObjectId>
-      <StateNumber>1062</StateNumber>
+    <key id="105" parent="44" name="status_pkey">
+      <ObjectId>18850</ObjectId>
+      <StateNumber>1407</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>status_pkey</UnderlyingIndexName>
     </key>
-    <column id="104" parent="56" name="user_id">
+    <column id="106" parent="45" name="user_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1063</StateNumber>
+      <StateNumber>1408</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="105" parent="56" name="role_id">
+    <column id="107" parent="45" name="role_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1063</StateNumber>
+      <StateNumber>1408</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="106" parent="56" name="fkn3mu5l5facx0i8noawjiskc0r">
-      <ObjectId>17973</ObjectId>
-      <StateNumber>1070</StateNumber>
+    <foreign-key id="108" parent="45" name="fkn3mu5l5facx0i8noawjiskc0r">
+      <ObjectId>18904</ObjectId>
+      <StateNumber>1419</StateNumber>
       <ColNames>user_id</ColNames>
-      <RefTableId>17882</RefTableId>
+      <RefTableId>18776</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>bk_user</RefTableName>
       <RefKeyName>bk_user_pkey</RefKeyName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
-    <foreign-key id="107" parent="56" name="fkrhfovtciq1l558cw6udg0h0d3">
-      <ObjectId>17968</ObjectId>
-      <StateNumber>1069</StateNumber>
+    <foreign-key id="109" parent="45" name="fkrhfovtciq1l558cw6udg0h0d3">
+      <ObjectId>18899</ObjectId>
+      <StateNumber>1418</StateNumber>
       <ColNames>role_id</ColNames>
-      <RefTableId>17923</RefTableId>
+      <RefTableId>18834</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>role</RefTableName>
       <RefKeyName>role_pkey</RefKeyName>
