@@ -1,14 +1,14 @@
 package com.epam.esm.service.impl;
 
 import com.epam.esm.entity.Review;
-import com.epam.esm.service.TagService;
+import com.epam.esm.service.ReviewService;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Service
-public class ShopTagService implements TagService {
+public class ReviewServiceJPA implements ReviewService {
 
     @Override
     public List<Review> findAll(int offset, int limit) {
@@ -22,11 +22,6 @@ public class ShopTagService implements TagService {
 
     @Override
     public Review find(long id) {
-        return null;
-    }
-
-    @Override
-    public Review findMostWidelyUsedTag() {
         return null;
     }
 

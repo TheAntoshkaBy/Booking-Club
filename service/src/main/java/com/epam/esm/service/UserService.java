@@ -32,6 +32,8 @@ public interface UserService {
      **/
     User create(User user);
 
+    User update(long id, User user);
+
     User findByLogin(String login);
 
     int getUsersCount();

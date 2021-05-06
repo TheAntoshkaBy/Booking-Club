@@ -1,5 +1,7 @@
 package com.epam.esm.service.impl;
 
+import static org.apache.logging.log4j.util.Strings.isBlank;
+
 import com.epam.esm.entity.Role;
 import com.epam.esm.entity.User;
 import com.epam.esm.exception.InvalidDataMessage;
@@ -16,13 +18,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Service
-public class ClubMemberService implements UserService {
+public class UserServiceJPA implements UserService {
 
     private final ClubMemberRepository userRepository;
     private final MemberRoleRepository roleRepository;
 
     @Autowired
-    public ClubMemberService(ClubMemberRepository userRepository, MemberRoleRepository roleRepository) {
+    public UserServiceJPA(ClubMemberRepository userRepository, MemberRoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
     }
@@ -42,7 +44,7 @@ public class ClubMemberService implements UserService {
 
     @Override
     public void delete(long id) {
-
+        userRepository.deleteById(id);
     }
 
     @Override
@@ -56,6 +58,27 @@ public class ClubMemberService implements UserService {
         roleRepository.findById(1L).ifPresent(roles::add);
         changeUser.setRoles(roles);
         return userRepository.save(changeUser);
+    }
+
+    @Override
+    public User update(long id, User user) {
+        User mutableUser = this.findById(id);
+
+        if (isBlank(user.getName())) {
+            user.setName(mutableUser.getName());
+        }
+        if (isBlank(user.getSurname())) {
+            user.setSurname(mutableUser.getSurname());
+        }
+        if (isBlank(user.getEmail())) {
+            user.setEmail(mutableUser.getEmail());
+        }
+        if (isBlank(user.getLogin())) {
+            user.setLogin(mutableUser.getLogin());
+        }
+
+        userRepository.update(id, user.getName(), user.getSurname(), user.getEmail(), user.getLogin());
+        return this.findById(id);
     }
 
     @Override

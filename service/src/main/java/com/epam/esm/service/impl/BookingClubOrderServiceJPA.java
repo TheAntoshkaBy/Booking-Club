@@ -1,21 +1,23 @@
 package com.epam.esm.service.impl;
 
-import com.epam.esm.service.OrderService;
+import com.epam.esm.entity.BookingClubOrder;
+import com.epam.esm.entity.User;
+import com.epam.esm.service.BookingClubOrderService;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Service
-public class ShopOrderService implements OrderService {
+public class BookingClubOrderServiceJPA implements BookingClubOrderService {
 
     @Override
-    public List<CertificateOrderPOJO> findAll(int page, int size) {
+    public List<BookingClubOrder> findAll(int page, int size) {
         return null;
     }
 
     @Override
-    public CertificateOrderPOJO find(long id) {
+    public BookingClubOrder find(long id) {
         return null;
     }
 
@@ -25,17 +27,12 @@ public class ShopOrderService implements OrderService {
     }
 
     @Override
-    public CertificateOrderPOJO create(CertificateOrderPOJO order, UserPOJO userPOJO) {
+    public BookingClubOrder create(BookingClubOrder order, User user) {
         return null;
     }
 
     @Override
-    public List<CertificateOrderPOJO> findAllByOwner(long id, int offset, int limit) {
-        return null;
-    }
-
-    @Override
-    public List<CertificateOrderPOJO> findAllByOwner(long id) {
+    public List<BookingClubOrder> findAllByOwner(long id, int offset, int limit) {
         return null;
     }
 
@@ -45,18 +42,13 @@ public class ShopOrderService implements OrderService {
     }
 
     @Override
-    public CertificateOrderPOJO addCertificates(long OrderId, List<Long> certificatesId) {
-        return null;
-    }
-
-    @Override
     public int getOrdersCount() {
         return 0;
     }
 
    /* private final OrderRepository repository;
     private final BookRepository bookRepository;
-    private final PojoConverter<CertificateOrderPOJO, Order> converter;
+    private final PojoConverter<BookingClubOrder, Order> converter;
     private final PojoConverter<UserPOJO, User> userConverter;
     private final OrderValidator validator;
     private final UserValidator userValidator;
@@ -64,7 +56,7 @@ public class ShopOrderService implements OrderService {
 
     @Autowired
     public ShopOrderService(OrderRepository repository, BookRepository bookRepository,
-        PojoConverter<CertificateOrderPOJO, Order> converter,
+        PojoConverter<BookingClubOrder, Order> converter,
         PojoConverter<UserPOJO, User> userConverter,
         OrderValidator validator, UserValidator userValidator,
         CertificateValidator certificateValidator) {
@@ -78,16 +70,16 @@ public class ShopOrderService implements OrderService {
     }
 
     @Override
-    public List<CertificateOrderPOJO> findAll(int page, int size) {
+    public List<BookingClubOrder> findAll(int page, int size) {
         page = PojoConverter.convertPaginationPageToDbOffsetParameter(page, size);
         List<Order> orders = repository.findAll(--page, size);
         return converter.convert(orders);
     }
 
     @Override
-    public CertificateOrderPOJO find(long id) {
+    public BookingClubOrder find(long id) {
         validator.checkId(id);
-        return new CertificateOrderPOJO(repository.findById(id));
+        return new BookingClubOrder(repository.findById(id));
     }
 
     @Override
@@ -97,23 +89,23 @@ public class ShopOrderService implements OrderService {
     }
 
     @Override
-    public CertificateOrderPOJO create(CertificateOrderPOJO order, UserPOJO userPOJO) {
+    public BookingClubOrder create(BookingClubOrder order, UserPOJO userPOJO) {
         order.setCost(new BigDecimal(0));
         order.setCreatedDate(new Date());
 
-        return new CertificateOrderPOJO(
+        return new BookingClubOrder(
             repository.create(converter.convert(order), userConverter.convert(userPOJO)));
     }
 
     @Override
-    public List<CertificateOrderPOJO> findAllByOwner(long id, int page, int size) {
+    public List<BookingClubOrder> findAllByOwner(long id, int page, int size) {
         page = PojoConverter.convertPaginationPageToDbOffsetParameter(page, size);
         userValidator.checkId(id);
         return converter.convert(repository.findAllByOwner(id, --page, size));
     }
 
     @Override
-    public List<CertificateOrderPOJO> findAllByOwner(long id) {
+    public List<BookingClubOrder> findAllByOwner(long id) {
         userValidator.checkId(id);
         return converter.convert(repository.findAllByOwner(id));
     }
@@ -125,7 +117,7 @@ public class ShopOrderService implements OrderService {
     }
 
     @Override
-    public CertificateOrderPOJO addCertificates(long orderId, List<Long> certificatesId) {
+    public BookingClubOrder addCertificates(long orderId, List<Long> certificatesId) {
         Order order = repository.findById(orderId);
         certificatesId.forEach(certificateValidator::checkId);
         List<Book> books = certificatesId
@@ -137,7 +129,7 @@ public class ShopOrderService implements OrderService {
            // summaryPrice = summaryPrice.add(book.getPrice());
         }
 
-        return new CertificateOrderPOJO(
+        return new BookingClubOrder(
             repository.addCertificates(order, books, summaryPrice));
     }
 

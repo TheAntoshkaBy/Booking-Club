@@ -63,7 +63,7 @@ public class BookServiceJPA implements BookService {
     }
 
     @Override
-    public void update(long id, Book book) {
+    public Book update(long id, Book book) {
         Book mutableBook = findBookInRepository(id);
 
         if (isBlank(book.getAuthor())) {
@@ -76,7 +76,8 @@ public class BookServiceJPA implements BookService {
             book.setDescription(mutableBook.getDescription());
         }
 
-        bookRepository.update(book.getName(), book.getDescription(), book.getAuthor());
+        bookRepository.update(id, book.getName(), book.getDescription(), book.getAuthor());
+        return this.find(id);
     }
 
     @Override
@@ -87,6 +88,6 @@ public class BookServiceJPA implements BookService {
 
     private Book findBookInRepository(long id) {
         return bookRepository.findById(id)
-            .orElseThrow(() -> new ServiceBadRequestException(new InvalidDataMessage("Invalid Id!")));
+            .orElseThrow(() -> new ServiceBadRequestException(new InvalidDataMessage("This ID is does not exist!")));
     }
 }

@@ -1,13 +1,15 @@
 package com.epam.esm.service;
 
+import com.epam.esm.entity.BookingClubOrder;
+import com.epam.esm.entity.User;
 import java.util.List;
 
-public interface OrderService {
+public interface BookingClubOrderService {
 
     /**
      * This method finds all orders from database
      **/
-    List<CertificateOrderPOJO> findAll(int page, int size);
+    List<BookingClubOrder> findAll(int page, int size);
 
     /**
      * This method finds concrete Order By Id
@@ -15,7 +17,7 @@ public interface OrderService {
      * @param id Tag Id
      * @return Tag
      **/
-    CertificateOrderPOJO find(long id);
+    BookingClubOrder find(long id);
 
     /**
      * This method delete order by transmitted user id
@@ -29,28 +31,17 @@ public interface OrderService {
      *
      * @param order User object
      **/
-    CertificateOrderPOJO create(CertificateOrderPOJO order, UserPOJO userPOJO);
+    BookingClubOrder create(BookingClubOrder order, User user);
 
     /**
      * This method finds all orders from database which belong concrete user
      **/
-    List<CertificateOrderPOJO> findAllByOwner(long id, int offset, int limit);
-
-    /**
-     * This method finds all orders from database which belong concrete user without pagination
-     **/
-    List<CertificateOrderPOJO> findAllByOwner(long id);
-
+    List<BookingClubOrder> findAllByOwner(long id, int offset, int limit);
 
     /**
      * This method finds count all orders from database without pagination
      **/
     int ordersCountByOwner(long id);
-
-    /**
-     * This method add certificates to order
-     **/
-    CertificateOrderPOJO addCertificates(long OrderId, List<Long> certificatesId);
 
     /**
      * This method finds count all orders from database without pagination

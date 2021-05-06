@@ -38,5 +38,5 @@ public interface BookService {
      **/
     Book create(Book book);
 
-    void update(long id, Book book);
+    Book update(long id, Book book);
 }

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,26 +41,32 @@ public class BookController {
         this.service = service;
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)//+
     public ResponseEntity<?> addBook(@RequestBody @Valid BookDTO book) {
         BookDTO newBook = new BookDTO(service.create(converter.convert(book)));
 
-        return ResponseEntity.created(linkTo(methodOn(BookController.class).findById(newBook.getId())).toUri())
+        return ResponseEntity.created(linkTo(methodOn(BookController.class).findBookById(newBook.getId())).toUri())
             .body(newBook.getModel());
     }
 
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<EntityModel<BookDTO>> findById(@PathVariable long id) {
+    public ResponseEntity<EntityModel<BookDTO>> findBookById(@PathVariable long id) {//+
         BookDTO bookDTO = new BookDTO(service.find(id));
 
         return new ResponseEntity<>(bookDTO.getModel(), HttpStatus.OK);
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteBook(@PathVariable Long id) {//+
         service.delete(id);
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)//+
+    public ResponseEntity<EntityModel<BookDTO>> updateBook(@RequestBody @Valid BookDTO book, @PathVariable int id) {
+
+        return new ResponseEntity<>(new BookDTO(service.update(id, converter.convert(book))).getModel(), HttpStatus.OK);
     }
 
     /*

@@ -23,11 +23,11 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     @Override
     List<Book> findAllById(Iterable<Long> iterable);
 
-    int getBookById();
+    int getBookById(long id);
 
-    @Modifying
+    @Modifying(clearAutomatically = true)
     @Query("update book b set b.name = :name, b.description = :description, b.author = :author where b.id = :id")
-    void update(@Param("name") String name, @Param("description") String description,
+    void update(@Param("id") long id, @Param("name") String name, @Param("description") String description,
                                          @Param("author") String author);
 
     @Modifying

@@ -7,6 +7,7 @@ import com.epam.esm.dto.UserDTO;
 import com.epam.esm.entity.User;
 import com.epam.esm.service.UserService;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,6 +16,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,15 +29,15 @@ public class UserController {
     private final UserService service;
     private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider jwtTokenProvider;
-    private final DtoConverter<RegistrationUserDTO, User> registrationConverter;
+    private final DtoConverter<UserDTO, User> converter;
 
     public UserController(UserService service, AuthenticationManager authenticationManager,
                           JwtTokenProvider jwtTokenProvider,
-                          DtoConverter<RegistrationUserDTO, User> registrationConverter) {
+                          DtoConverter<UserDTO, User> converter) {
         this.service = service;
         this.authenticationManager = authenticationManager;
         this.jwtTokenProvider = jwtTokenProvider;
-        this.registrationConverter = registrationConverter;
+        this.converter = converter;
     }
 
     /* @PatchMapping(path = "{id}/orders")
@@ -93,6 +96,11 @@ public class UserController {
         return new ResponseEntity<>(searchedUser.getModel(startPage, startSize), HttpStatus.OK);
     }
 
+    @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)//+
+    public ResponseEntity<EntityModel<UserDTO>> updateBook(@RequestBody @Valid UserDTO userDTO, @PathVariable int id) {
+
+        return new ResponseEntity<>(new UserDTO(service.update(id, converter.convert(userDTO))).getModel(), HttpStatus.OK);
+    }
     /*  @GetMapping(path = "/{id}/orders", produces = MediaType.APPLICATION_JSON_VALUE)
       public ResponseEntity<OrderList> findOrders(@PathVariable long id,
           @RequestParam(value = ControllerParamNames.PAGE_PARAM_NAME,

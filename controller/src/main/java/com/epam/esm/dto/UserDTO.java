@@ -27,25 +27,25 @@ public class UserDTO {
     @Null(message ="{validation.user.id}")
     private Long id;
 
-    @NotNull(message = "{validation.user.name}")
-    @Size(min = 2, max = 70, message = "{validation.user.name.not.null}")
+    //@NotNull(message = "{validation.user.name}")
+    //@Size(min = 2, max = 70, message = "{validation.user.name.not.null}")
     private String name;
 
-    @NotNull(message = "{validation.user.surname}")
-    @Size(min = 3, max = 170, message = "{validation.user.surname}")
+   // @NotNull(message = "{validation.user.surname}")
+   // @Size(min = 3, max = 170, message = "{validation.user.surname}")
     private String surname;
 
-    @NotNull(message = "{validation.user.login}")
-    @Size(min = 5, max = 30, message = "{validation.user.login.not.null}")
+    //@NotNull(message = "{validation.user.login}")
+    //@Size(min = 5, max = 30, message = "{validation.user.login.not.null}")
     private String login;
 
-    @NotNull(message = "{validation.user.password.not.null}")
-    @Size(min = 4, max = 30, message =  "{validation.user.password}")
+    //@NotNull(message = "{validation.user.password.not.null}")
+    //@Size(min = 4, max = 30, message =  "{validation.user.password}")
     @JsonIgnore
     private String password;
 
-    @Email(message = "{validation.user.email}")
-    @NotNull(message = "{validation.user.email.not.null}")
+    //@Email(message = "{validation.user.email}")
+    //@NotNull(message = "{validation.user.email.not.null}")
     private String email;
 
     @Null(message = "{validation.user.roles.null}")
@@ -55,7 +55,7 @@ public class UserDTO {
     private EntityModel<UserDTO> model;
 
     public UserDTO(User user) {
-        this.id = user.getUser_id();
+        this.id = user.getId();
         this.name = user.getName();
         this.surname = user.getSurname();
         this.login = user.getLogin();

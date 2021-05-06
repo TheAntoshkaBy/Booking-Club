@@ -54,7 +54,7 @@ public class RegistrationUserDTO {
     private EntityModel<RegistrationUserDTO> model;
 
     public RegistrationUserDTO(User user) {
-        this.id = user.getUser_id();
+        this.id = user.getId();
         this.name = user.getName();
         this.surname = user.getSurname();
         this.login = user.getLogin();

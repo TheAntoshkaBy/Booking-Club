@@ -41,6 +41,7 @@ public class BookDTO {
     private EntityModel<BookDTO> model;
 
     public BookDTO(Book book) {
+        this.id = book.getId();
         this.name = book.getName();
         this.description = book.getDescription();
         this.creationDate = book.getCreationDate();
@@ -57,7 +58,7 @@ public class BookDTO {
         int defaultSize = 5;
 
         model = EntityModel
-            .of(this, linkTo(methodOn(BookController.class).findById(id)).withSelfRel().withType(methodTypeGET),
+            .of(this, linkTo(methodOn(BookController.class).findBookById(id)).withSelfRel().withType(methodTypeGET),
                 linkTo(methodOn(BookController.class).deleteBook(id)).withRel(deleteRelName)
                     .withType(methodTypeDELETE));
         return model;

@@ -1,11 +1,12 @@
 package com.epam.esm.service;
 
+import com.epam.esm.entity.Review;
 import java.util.List;
 
 /**
  * @author Anton Vedenichev (https://github.com/TheAntoshkaBy)
  */
-public interface TagService {
+public interface ReviewService {
 
     /**
      * This method finds all tags from database
@@ -21,8 +22,6 @@ public interface TagService {
      * @return Tag
      **/
     Review find(long id);
-
-    Review findMostWidelyUsedTag();
 
     /**
      * This method delete tag by transmitted tag id to certificate with transmitted certificate id

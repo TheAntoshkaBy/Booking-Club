@@ -1,5 +1,7 @@
 package com.epam.esm.service.validator;
 
+import com.epam.esm.entity.User;
+import com.epam.esm.exception.InvalidDataMessage;
 import com.epam.esm.exception.ServiceValidationException;
 import com.epam.esm.exception.constant.ErrorTextMessageConstants;
 import com.epam.esm.repository.ClubMemberRepository;
@@ -32,7 +34,7 @@ public class UserValidator {
         }*/
     }
 
-    public void isCorrectUser(UserPOJO user) {
+    public void isCorrectUser(User user) {
         List<InvalidDataMessage> invalidDataMessageList = new ArrayList<>();
 
         checkEmailUnique(user.getEmail(), invalidDataMessageList);

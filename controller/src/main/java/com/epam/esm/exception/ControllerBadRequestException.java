@@ -3,7 +3,9 @@ package com.epam.esm.exception;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ControllerBadRequestException extends RuntimeException {
 
     private final static String MESSAGE = "Controller exception";
