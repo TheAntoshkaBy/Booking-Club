@@ -4,7 +4,7 @@ import com.epam.esm.entity.User;
 import com.epam.esm.exception.InvalidDataMessage;
 import com.epam.esm.exception.ServiceValidationException;
 import com.epam.esm.exception.constant.ErrorTextMessageConstants;
-import com.epam.esm.repository.ClubMemberRepository;
+import com.epam.esm.repository.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +13,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserValidator {
 
-    private final ClubMemberRepository repository;
+    private final UserRepository repository;
 
     @Autowired
-    public UserValidator(ClubMemberRepository repository) {
+    public UserValidator(UserRepository repository) {
         this.repository = repository;
     }
 

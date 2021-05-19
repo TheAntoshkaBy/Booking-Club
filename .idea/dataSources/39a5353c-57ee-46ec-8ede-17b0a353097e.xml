@@ -798,7 +798,7 @@ false Zulu
     <database id="4" parent="1" name="second_db">
       <ObjectId>16394</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1580</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1652</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|19195|19197|1
 sequence|table|19206|19208|1
@@ -858,7 +858,7 @@ sequence|table|19261|19263|1
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1581</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1653</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="17" parent="4" name="heap">
@@ -1008,7 +1008,7 @@ sequence|table|19261|19263|1
     <table id="43" parent="16" name="role">
       <ObjectId>19252</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1578</StateNumber>
+      <StateNumber>1633</StateNumber>
     </table>
     <table id="44" parent="16" name="status">
       <ObjectId>19263</ObjectId>
@@ -1028,7 +1028,7 @@ sequence|table|19261|19263|1
     <table id="47" parent="16" name="user_roles">
       <ObjectId>19275</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1578</StateNumber>
+      <StateNumber>1635</StateNumber>
     </table>
     <column id="48" parent="36" name="id">
       <Position>1</Position>
@@ -1082,11 +1082,11 @@ sequence|table|19261|19263|1
       <Primary>1</Primary>
       <UnderlyingIndexName>bk_user_pkey</UnderlyingIndexName>
     </key>
-    <column id="56" parent="37" name="book_id">
+    <column id="56" parent="37" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1557</StateNumber>
+      <StateNumber>1624</StateNumber>
       <DefaultExpression>nextval(&apos;book_book_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
@@ -1123,22 +1123,22 @@ sequence|table|19261|19263|1
     <index id="62" parent="37" name="book_pkey">
       <ObjectId>19215</ObjectId>
       <StateNumber>1557</StateNumber>
-      <ColNames>book_id</ColNames>
+      <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
     <key id="63" parent="37" name="book_pkey">
       <ObjectId>19216</ObjectId>
       <StateNumber>1557</StateNumber>
-      <ColNames>book_id</ColNames>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>book_pkey</UnderlyingIndexName>
     </key>
-    <column id="64" parent="38" name="group_id">
+    <column id="64" parent="38" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1558</StateNumber>
+      <StateNumber>1627</StateNumber>
       <DefaultExpression>nextval(&apos;book_group_group_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
@@ -1157,14 +1157,14 @@ sequence|table|19261|19263|1
     <index id="67" parent="38" name="book_group_pkey">
       <ObjectId>19226</ObjectId>
       <StateNumber>1558</StateNumber>
-      <ColNames>group_id</ColNames>
+      <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
     <key id="68" parent="38" name="book_group_pkey">
       <ObjectId>19227</ObjectId>
       <StateNumber>1558</StateNumber>
-      <ColNames>group_id</ColNames>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>book_group_pkey</UnderlyingIndexName>
     </key>
@@ -1378,11 +1378,11 @@ sequence|table|19261|19263|1
       <RefKeyName>bk_user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="97" parent="43" name="role_id">
+    <column id="97" parent="43" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1562</StateNumber>
+      <StateNumber>1630</StateNumber>
       <DefaultExpression>nextval(&apos;role_role_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
@@ -1398,21 +1398,28 @@ sequence|table|19261|19263|1
       <StateNumber>1562</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="100" parent="43" name="role_pkey">
+    <column id="100" parent="43" name="role_id">
+      <Position>4</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1633</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <index id="101" parent="43" name="role_pkey">
       <ObjectId>19259</ObjectId>
       <StateNumber>1562</StateNumber>
-      <ColNames>role_id</ColNames>
+      <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="101" parent="43" name="role_pkey">
+    <key id="102" parent="43" name="role_pkey">
       <ObjectId>19260</ObjectId>
       <StateNumber>1562</StateNumber>
-      <ColNames>role_id</ColNames>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>role_pkey</UnderlyingIndexName>
     </key>
-    <column id="102" parent="44" name="id">
+    <column id="103" parent="44" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -1420,41 +1427,41 @@ sequence|table|19261|19263|1
       <DefaultExpression>nextval(&apos;status_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="103" parent="44" name="user_name">
+    <column id="104" parent="44" name="user_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1563</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="104" parent="44" name="status_pkey">
+    <index id="105" parent="44" name="status_pkey">
       <ObjectId>19267</ObjectId>
       <StateNumber>1563</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="105" parent="44" name="status_pkey">
+    <key id="106" parent="44" name="status_pkey">
       <ObjectId>19268</ObjectId>
       <StateNumber>1563</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>status_pkey</UnderlyingIndexName>
     </key>
-    <column id="106" parent="45" name="user_id">
+    <column id="107" parent="45" name="user_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1564</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="107" parent="45" name="book_id">
+    <column id="108" parent="45" name="book_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1564</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="108" parent="45" name="fk3me984xqf9cqt9eeinumfp1k7">
+    <foreign-key id="109" parent="45" name="fk3me984xqf9cqt9eeinumfp1k7">
       <ObjectId>19318</ObjectId>
       <StateNumber>1575</StateNumber>
       <ColNames>user_id</ColNames>
@@ -1464,7 +1471,7 @@ sequence|table|19261|19263|1
       <RefKeyName>bk_user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="109" parent="45" name="fk8bk6jns42yeb98s1ns3oblo42">
+    <foreign-key id="110" parent="45" name="fk8bk6jns42yeb98s1ns3oblo42">
       <ObjectId>19313</ObjectId>
       <StateNumber>1574</StateNumber>
       <ColNames>book_id</ColNames>
@@ -1474,21 +1481,21 @@ sequence|table|19261|19263|1
       <RefKeyName>book_pkey</RefKeyName>
       <RefColNames>book_id</RefColNames>
     </foreign-key>
-    <column id="110" parent="46" name="user_id">
+    <column id="111" parent="46" name="user_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1565</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="111" parent="46" name="book_group_id">
+    <column id="112" parent="46" name="book_group_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1565</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="112" parent="46" name="fk9fr0d3pm3dl3v40sotyoy0otg">
+    <foreign-key id="113" parent="46" name="fk9fr0d3pm3dl3v40sotyoy0otg">
       <ObjectId>19328</ObjectId>
       <StateNumber>1577</StateNumber>
       <ColNames>user_id</ColNames>
@@ -1498,7 +1505,7 @@ sequence|table|19261|19263|1
       <RefKeyName>bk_user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="113" parent="46" name="fknsotfkf4y10bxcomda7hxlaq">
+    <foreign-key id="114" parent="46" name="fknsotfkf4y10bxcomda7hxlaq">
       <ObjectId>19323</ObjectId>
       <StateNumber>1576</StateNumber>
       <ColNames>book_group_id</ColNames>
@@ -1508,21 +1515,35 @@ sequence|table|19261|19263|1
       <RefKeyName>book_group_pkey</RefKeyName>
       <RefColNames>group_id</RefColNames>
     </foreign-key>
-    <column id="114" parent="47" name="user_id">
+    <column id="115" parent="47" name="user_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1566</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="115" parent="47" name="role_id">
+    <column id="116" parent="47" name="role_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1566</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="116" parent="47" name="fkn3mu5l5facx0i8noawjiskc0r">
+    <column id="117" parent="47" name="group_id">
+      <Position>3</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1634</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="118" parent="47" name="book_id">
+      <Position>4</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1635</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <foreign-key id="119" parent="47" name="fkn3mu5l5facx0i8noawjiskc0r">
       <ObjectId>19338</ObjectId>
       <StateNumber>1579</StateNumber>
       <ColNames>user_id</ColNames>
@@ -1532,7 +1553,7 @@ sequence|table|19261|19263|1
       <RefKeyName>bk_user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="117" parent="47" name="fkrhfovtciq1l558cw6udg0h0d3">
+    <foreign-key id="120" parent="47" name="fkrhfovtciq1l558cw6udg0h0d3">
       <ObjectId>19333</ObjectId>
       <StateNumber>1578</StateNumber>
       <ColNames>role_id</ColNames>
@@ -1540,7 +1561,27 @@ sequence|table|19261|19263|1
       <RefColPositions>1</RefColPositions>
       <RefTableName>role</RefTableName>
       <RefKeyName>role_pkey</RefKeyName>
-      <RefColNames>role_id</RefColNames>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="121" parent="47" name="fkpbm3ldxn8c07u8dond418proj">
+      <ObjectId>19349</ObjectId>
+      <StateNumber>1637</StateNumber>
+      <ColNames>group_id</ColNames>
+      <RefTableId>19219</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>book_group</RefTableName>
+      <RefKeyName>book_group_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="122" parent="47" name="fkqv94epilxt9syxdg48g1a5jdy">
+      <ObjectId>19344</ObjectId>
+      <StateNumber>1636</StateNumber>
+      <ColNames>book_id</ColNames>
+      <RefTableId>19208</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>book</RefTableName>
+      <RefKeyName>book_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
     </foreign-key>
   </database-model>
 </dataSource>

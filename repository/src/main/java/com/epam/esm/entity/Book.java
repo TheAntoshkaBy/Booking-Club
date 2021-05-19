@@ -36,7 +36,7 @@ public class Book implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "book_id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "name")

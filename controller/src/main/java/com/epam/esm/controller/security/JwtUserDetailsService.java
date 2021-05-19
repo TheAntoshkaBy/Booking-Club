@@ -1,6 +1,6 @@
 package com.epam.esm.controller.security;
 
-import com.epam.esm.dto.UserDTO;
+import com.epam.esm.dto.UserDto;
 import com.epam.esm.controller.security.jwt.JwtUserFactory;
 import com.epam.esm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        UserDTO userDTO = new UserDTO(userService.findByLogin(login));
+        UserDto userDTO = new UserDto(userService.findByLogin(login));
         return JwtUserFactory.create(userDTO);
     }
 }

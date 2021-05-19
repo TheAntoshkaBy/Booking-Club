@@ -23,7 +23,7 @@ public class BookingClubOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long order_id;
+    private Long id;
 
     @Column(name = "create_time")
     private Date createTime;

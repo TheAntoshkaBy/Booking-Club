@@ -1,6 +1,6 @@
 package com.epam.esm.controller.security.jwt;
 
-import com.epam.esm.dto.UserDTO;
+import com.epam.esm.dto.UserDto;
 import com.epam.esm.entity.Role;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ public final class JwtUserFactory {
     public JwtUserFactory() {
     }
 
-    public static JwtUser create(UserDTO user) {
+    public static JwtUser create(UserDto user) {
         return new JwtUser(user.getId(), user.getLogin(), user.getName(), user.getSurname(),
                            user.getEmail(), user.getPassword(),
                            mapToGrantedAuthorities(new ArrayList<>(user.getRoles()))

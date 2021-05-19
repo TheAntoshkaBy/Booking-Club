@@ -1,6 +1,6 @@
 package com.epam.esm.exception;
 
-import com.epam.esm.dto.ApiErrorDTO;
+import com.epam.esm.dto.ApiErrorDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -21,7 +21,7 @@ public class RestAuthenticationExceptionHandler implements AuthenticationEntryPo
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
         String errorMessage = "Access Denied, please authorise!";
 
-        ApiErrorDTO apiError = new ApiErrorDTO(
+        ApiErrorDto apiError = new ApiErrorDto(
             HttpStatus.UNAUTHORIZED.toString(),errorMessage , request.getRequestURI());
 
         OutputStream out = response.getOutputStream();

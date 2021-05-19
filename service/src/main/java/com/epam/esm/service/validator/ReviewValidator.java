@@ -3,7 +3,7 @@ package com.epam.esm.service.validator;
 import com.epam.esm.entity.Review;
 import com.epam.esm.exception.InvalidDataMessage;
 import com.epam.esm.exception.ServiceValidationException;
-import com.epam.esm.repository.MemberReviewRepository;
+import com.epam.esm.repository.ReviewRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +12,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class ReviewValidator {
 
-    private final MemberReviewRepository memberReviewRepository;
+    private final ReviewRepository reviewRepository;
     private List<InvalidDataMessage> invalidDataMessageList;
 
     @Autowired
-    public ReviewValidator(MemberReviewRepository memberReviewRepository) {
-        this.memberReviewRepository = memberReviewRepository;
+    public ReviewValidator(ReviewRepository reviewRepository) {
+        this.reviewRepository = reviewRepository;
     }
 
     public void isCorrectReview(Review review) {

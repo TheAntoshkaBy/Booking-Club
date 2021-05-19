@@ -8,7 +8,9 @@ public interface UserService {
     /**
      * This method finds all users from database using DAO
      **/
-    List<User> findAll(int page, int size);
+    List<User> findAllUsersWithPagination(int page, int size);
+
+    List<User> findAllUsersWithPagination();
 
     /**
      * This method finds concrete User By Id using DAO

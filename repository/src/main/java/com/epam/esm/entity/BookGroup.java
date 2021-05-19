@@ -25,7 +25,7 @@ public class BookGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "group_id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "name")
@@ -35,8 +35,8 @@ public class BookGroup {
     private String description;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "groupbook_book",
-        joinColumns = {@JoinColumn(name = "group_id", referencedColumnName = "group_id")},
-        inverseJoinColumns = {@JoinColumn(name = "book_id", referencedColumnName = "book_id")})
+    @JoinTable(name = "user_roles",
+        joinColumns = @JoinColumn(name = "group_id"),
+        inverseJoinColumns = @JoinColumn(name = "book_id"))
     private List<Book> books;
 }
