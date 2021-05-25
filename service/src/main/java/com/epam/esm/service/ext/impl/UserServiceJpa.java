@@ -58,12 +58,14 @@ public class UserServiceJpa implements UserService {
     @Override
     public User create(User user) {
 
+        long userClassicRole = 1L;
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String actualPassword = user.getPassword();
-        user.setPassword(bCryptPasswordEncoder.encode(actualPassword));
+        String hashedPassword = bCryptPasswordEncoder.encode(actualPassword);
+        user.setPassword(hashedPassword);
         User changeUser = userRepository.save(user);
         ArrayList<Role> roles = new ArrayList<>();
-        roleRepository.findById(1L).ifPresent(roles::add);
+        roleRepository.findById(userClassicRole).ifPresent(roles::add);
         changeUser.setRoles(roles);
         return userRepository.save(changeUser);
     }

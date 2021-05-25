@@ -1,6 +1,5 @@
 package com.epam.esm.controller.impl;
 
-import static java.util.stream.Collectors.toList;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
@@ -9,6 +8,7 @@ import com.epam.esm.controller.support.ControllerParamNames;
 import com.epam.esm.converter.BookConverter;
 import com.epam.esm.dto.BookDto;
 import com.epam.esm.dto.BookList;
+import com.epam.esm.entity.Book;
 import com.epam.esm.service.ext.BookService;
 import java.util.List;
 import javax.validation.Valid;
@@ -48,7 +48,7 @@ public class BookController implements BookingClubController<BookDto> {
         @RequestParam(value = ControllerParamNames.PAGE_PARAM_NAME) int page,
         @RequestParam(value = ControllerParamNames.SIZE_PARAM_NAME) int size) {
 
-        List<BookDto> book =  converter.convert(service.findAll(page, size));
+        List<BookDto> book =  converter.convert(service.findAllBooksWithPagination(page, size));
         int count = service.getAllBooksCount();
 
         return new ResponseEntity<>( new BookList(book, count), HttpStatus.OK);
@@ -64,7 +64,8 @@ public class BookController implements BookingClubController<BookDto> {
 
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<EntityModel<BookDto>> findById(@PathVariable long id) {//+
-        BookDto bookDTO = new BookDto(service.findById(id));
+        Book book = service.findById(id);
+        BookDto bookDTO = new BookDto(book);
 
         return new ResponseEntity<>(bookDTO.getModel(), HttpStatus.OK);
     }

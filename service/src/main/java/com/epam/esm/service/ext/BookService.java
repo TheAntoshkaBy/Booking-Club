@@ -12,7 +12,7 @@ public interface BookService extends BookingClubService<Book> {
      **/
     int getBooksCount(Map<String, String> request, List<Review> reviews);
 
-    List<Book> findAll(int page, int size);
+    List<Book> findAllBooksWithPagination(int page, int size);
 
     /**
      * This method finds concrete Certificate By Id

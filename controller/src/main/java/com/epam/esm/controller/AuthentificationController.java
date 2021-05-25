@@ -10,8 +10,6 @@ import com.epam.esm.dto.AuthenticationRequestDto;
 import com.epam.esm.dto.RegistrationUserDto;
 import com.epam.esm.dto.UserDto;
 import com.epam.esm.entity.User;
-import com.epam.esm.exception.ControllerBadRequestException;
-import com.epam.esm.exception.InvalidControllerOutputMessage;
 import com.epam.esm.service.UserService;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,6 +22,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,8 +59,9 @@ public class AuthentificationController {
 
         try {
             String username = requestDto.getLogin();
-            authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(username, requestDto.getPassword()));
+            String pass = requestDto.getPassword();
+            Authentication authenticationUser = new UsernamePasswordAuthenticationToken(username, pass);
+            authenticationManager.authenticate(authenticationUser);
             UserDto user = new UserDto(service.findByLogin(username));
 
             String token = jwtTokenProvider.createToken(username, user.getRoles());
@@ -91,10 +91,10 @@ public class AuthentificationController {
         String invalid = "Invalid data";
 
         try {
-            User user = service.create(registrationConverter.convert(userDTO));
+            User serviceUser = registrationConverter.convert(userDTO);
+            User user = service.create(serviceUser);
             UserDto createdUser = new UserDto(user);
-            return ResponseEntity
-                .created(linkTo(methodOn(UserController.class).findById(createdUser.getId())).toUri())
+            return ResponseEntity.ok()
                 .body(createdUser.getModel());
         } catch (AuthenticationException e) {
             throw new BadCredentialsException(invalid);

@@ -43,7 +43,7 @@ public class BookServiceJpa implements BookService {
      * @return Book list
      */
     @Override
-    public List<Book> findAll(int page, int size) {
+    public List<Book> findAllBooksWithPagination(int page, int size) {
         int limit = page*size-size;
             Pageable pageable = new OffsetBasedPageRequest(size, limit);
         Page<Book> page1 = bookRepository.findAll(pageable);
