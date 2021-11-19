@@ -1,6 +1,5 @@
 package com.epam.esm.controller.security.jwt;
 
-import com.epam.esm.entity.Role;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;
@@ -48,11 +47,9 @@ public class JwtTokenProvider {
         secret = Base64.getEncoder().encodeToString(secret.getBytes());
     }
 
-    public String createToken(String username, List<Role> roles) {
+    public String createToken(String username) {
         String rolesNameParameter = "roles";
         Claims claims = Jwts.claims().setSubject(username);
-        claims.put(rolesNameParameter, getRoleNames(roles));
-
         Date now = new Date();
         Date validity = new Date(now.getTime() + validityInMilliseconds);
 
@@ -94,12 +91,5 @@ public class JwtTokenProvider {
         } catch (JwtException | IllegalArgumentException e) {
             throw new JwtAuthenticationException(invalidToken);
         }
-    }
-
-    private List<String> getRoleNames(List<Role> userRoles) {
-        List<String> result = new ArrayList<>();
-
-        userRoles.forEach(role -> result.add(role.getName()));
-        return result;
     }
 }

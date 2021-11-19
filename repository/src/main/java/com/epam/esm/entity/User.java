@@ -20,8 +20,8 @@ import org.hibernate.annotations.FetchMode;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "bk_user")
-@Table(name = "bk_user")
+@Entity(name = "user")
+@Table(name = "club_user")
 public class User {
 
     @Id
@@ -44,33 +44,10 @@ public class User {
     @Column(name = "email")
     private String email;
 
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_roles",
-        joinColumns = @JoinColumn(name = "user_id"),
-        inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List<Role> roles;
-
     @ManyToMany(fetch = FetchType.LAZY)
     @Fetch(value = FetchMode.SUBSELECT)
     @JoinTable(name = "user_books",
         joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "book_id"))
     private List<Book> book;
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @Fetch(value = FetchMode.SUBSELECT)
-    @JoinTable(name = "user_booksGroups",
-        joinColumns = @JoinColumn(name = "user_id"),
-        inverseJoinColumns = @JoinColumn(name = "bookGroup_id"))
-    private List<BookGroup> bookGroups;
-
-    public User(String name, String surname, String login, String password, String email, List<BookGroup> bookGroups) {
-        this.name = name;
-        this.surname = surname;
-        this.login = login;
-        this.password = password;
-        this.email = email;
-        this.bookGroups = bookGroups;
-    }
 }

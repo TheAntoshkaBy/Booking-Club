@@ -1,7 +1,7 @@
 package com.epam.esm.controller.security.jwt;
 
 import com.epam.esm.dto.UserDto;
-import com.epam.esm.entity.Role;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,15 +15,7 @@ public final class JwtUserFactory {
 
     public static JwtUser create(UserDto user) {
         return new JwtUser(user.getId(), user.getLogin(), user.getName(), user.getSurname(),
-                           user.getEmail(), user.getPassword(),
-                           mapToGrantedAuthorities(new ArrayList<>(user.getRoles()))
+                           user.getEmail(), user.getPassword(),null
         );
-    }
-
-    private static List<GrantedAuthority> mapToGrantedAuthorities(List<Role> userRoles) {
-            return userRoles.stream()
-            .map(role ->
-                new SimpleGrantedAuthority(role.getName())
-            ).collect(Collectors.toList());
     }
 }

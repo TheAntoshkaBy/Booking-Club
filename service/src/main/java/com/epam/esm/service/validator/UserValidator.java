@@ -39,10 +39,6 @@ public class UserValidator {
 
         checkEmailUnique(user.getEmail(), invalidDataMessageList);
         checkLoginUnique(user.getLogin(), invalidDataMessageList);
-
-        if (!invalidDataMessageList.isEmpty()) {
-            throw new ServiceValidationException(invalidDataMessageList);
-        }
     }
 
     public void checkId(Long id) {

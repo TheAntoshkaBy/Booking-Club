@@ -21,7 +21,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        UserDto userDTO = new UserDto(userService.findByLogin(login));
+        UserDto userDTO = null;//new UserDto(userService.findByLogin(login));
         return JwtUserFactory.create(userDTO);
     }
 }

@@ -27,11 +27,6 @@ public interface UserService {
      **/
     void delete(long id);
 
-    /**
-     * This method add new User
-     *
-     * @param tag User object
-     **/
     User create(User user);
 
     User update(long id, User user);

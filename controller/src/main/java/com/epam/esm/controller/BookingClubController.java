@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.text.ParseException;
+
 public interface BookingClubController<T> {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<?> create(@RequestBody @Valid T t);
+    ResponseEntity<?> create(@RequestBody @Valid T t) throws ParseException;
 
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<EntityModel<T>> findById(@PathVariable long id);
@@ -23,5 +25,5 @@ public interface BookingClubController<T> {
     ResponseEntity<Void> delete(@PathVariable Long id);
 
     @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<EntityModel<T>> update(@RequestBody @Valid T t, @PathVariable int id);
+    ResponseEntity<EntityModel<T>> update(@RequestBody @Valid T t, @PathVariable long id) throws ParseException;
 }

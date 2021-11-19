@@ -23,7 +23,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAll();
 
     @Modifying(clearAutomatically = true)
-    @Query("update bk_user u set u.name = :name, u.surname = :surname, u.email = :email, u.login = :login where u.id = :id")
+    @Query("update user u set u.name = :name, u.surname = :surname, u.email = :email, u.login = :login where u.id = :id")
     void update(@Param("id") long id, @Param("name") String name, @Param("surname") String surname,
                 @Param("email") String email, @Param("login") String login);
 }

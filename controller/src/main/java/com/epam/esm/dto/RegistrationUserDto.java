@@ -4,7 +4,6 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import com.epam.esm.controller.impl.UserController;
-import com.epam.esm.entity.Role;
 import com.epam.esm.entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,7 +20,7 @@ import org.springframework.hateoas.EntityModel;
 @Data
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class RegistrationUserDto {
+public class    RegistrationUserDto {
 
     @ToString.Exclude
     @Null(message = "{validation.user.id}")
@@ -47,9 +46,6 @@ public class RegistrationUserDto {
     @NotNull(message = "{validation.user.email.not.null}")
     private String email;
 
-    @Null(message = "{validation.user.roles.null}")
-    private List<Role> roles;
-
     @JsonIgnore
     private EntityModel<RegistrationUserDto> model;
 
@@ -59,7 +55,6 @@ public class RegistrationUserDto {
         this.surname = user.getSurname();
         this.login = user.getLogin();
         this.password = user.getPassword();
-        this.roles = user.getRoles();
         this.email = user.getEmail();
     }
 
@@ -69,8 +64,8 @@ public class RegistrationUserDto {
         String methodTypeDELETE = "DELETE";
         String methodTypeGET = "GET";
 
-        model = EntityModel.of(this, linkTo(methodOn(UserController.class).findById(id)).withSelfRel(),
-            linkTo(methodOn(UserController.class).delete(id)).withRel(deleteRelName).withType(methodTypeDELETE));
+       /* model = EntityModel.of(this, linkTo(methodOn(UserController.class).findById(id)).withSelfRel(),
+            linkTo(methodOn(UserController.class).delete(id)).withRel(deleteRelName).withType(methodTypeDELETE));*/
         return model;
     }
 }

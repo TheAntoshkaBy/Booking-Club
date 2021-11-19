@@ -1,37 +1,21 @@
 package com.epam.esm.entity;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.Set;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Data
 @Entity(name = "book")
 @Table(name = "book")
-/*@NamedStoredProcedureQueries({
-    @NamedStoredProcedureQuery(
-        name = "findByNameProcedure",
-        procedureName = "return_t_certificate3",
-        resultClasses = { Book.class},
-        parameters = {
-            @StoredProcedureParameter
-                (
-                    name = "text",
-                    type = String.class
-                )
-        })
-})*/
-@Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Book implements Serializable {
 
     @Id
@@ -42,29 +26,27 @@ public class Book implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "count")
-    private int count;
-
-    @Column(name = "description")
+    @Column(name = "description", length = 20000)
     private String description;
 
-    @Column(name = "date_of_creation")
-    private Date creationDate;
+    @Column(name = "date_of_addition")
+    private Date addedDate;
 
-    @Column(name = "author")
-    private String author;
+    private Date yearTheBookWasPrinted;
 
-    public Book(String name, String description, String author, int count, Date creationDate) {
-        this.name = name;
-        this.count = count;
-        this.description = description;
-        this.creationDate = creationDate;
-        this.author = author;
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "author_book",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id")
+    )
+    private List<Author> authors;
+
+
+    public List<Author> getAuthors() {
+        if (authors == null){
+            authors = new ArrayList<>();
+        }
+        return authors;
     }
-
-    /* @OneToMany(mappedBy="rewiew", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-   private Set<Review> review;*/
-
-//    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-//    private Set<BookingClubOrder> bookingClubOrders;
 }
